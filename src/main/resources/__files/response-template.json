@@ -1,0 +1,29 @@
+{
+  "totalPages": "500",
+  "data": [
+    {
+      "id": "{{randomValue type='UUID'}}",
+      "type": "{{pickRandom 'flat' 'detached_house' 'semi_detached_house' 'terraced_house'}}",
+      "price": "{{randomDecimal lower=150000 upper=10000000}}",
+      "description": "A lovely home 1",
+      "area": "{{randomDecimal lower=18 upper=400}}",
+      "rooms": "{{randomInt lower=1 upper=10}}"
+    },
+    {
+      "id": "{{randomValue type='UUID'}}",
+      "type": "{{pickRandom 'flat' 'detached_house' 'semi_detached_house' 'terraced_house'}}",
+      "price": "{{randomDecimal lower=150000 upper=10000000}}",
+      "description": "A lovely home 2",
+      "area": "{{randomDecimal lower=18 upper=400}}",
+      "rooms": "{{randomInt lower=1 upper=10}}"
+    },
+    {
+      "id": "{{randomValue type='UUID'}}",
+      "type": "{{pickRandom 'flat' 'detached_house' 'semi_detached_house' 'terraced_house'}}",
+      "price": "{{randomDecimal lower=150000 upper=10000000}}",
+      "description": "A lovely home 3",
+      "area": "{{randomDecimal lower=18 upper=400}}",
+      "rooms": "{{randomInt lower=1 upper=10}}"
+    }
+  ]
+}

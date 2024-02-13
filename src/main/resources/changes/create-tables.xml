@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="20240210-kamil-001" author="kamil">
+        <preConditions>
+            <not>
+                <tableExists tableName="house"/>
+            </not>
+        </preConditions>
+            <sql>
+                CREATE TABLE HOUSE
+                (
+                    id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                    type          VARCHAR(100),
+                    price         NUMERIC(38,2),
+                    description   VARCHAR(500),
+                    area          NUMERIC(38,2),
+                    rooms         INTEGER,
+                    region        VARCHAR(25) NOT NULL,
+                    is_deleted    BOOLEAN          DEFAULT FALSE,
+                    creation_date DATE,
+                    CONSTRAINT chk_house_region CHECK (region IN (
+                                                                  'DLN_WROC_C', 'DLN_WROC_PC', 'DLN_POZA_WROC',
+                                                                  'SL_POL', 'SL_KATO', 'SL_PN',
+                                                                  'M_WAW_CE', 'M_WAW_W', 'M_WAW_Z',
+                                                                  'LUBL', 'LUBL_INNE', 'ZPOM', 'LUBSK'
+                        ))
+                );
+            </sql>
+    </changeSet>
+
+
+</databaseChangeLog>
